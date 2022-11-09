@@ -22,11 +22,27 @@ The fitness function calculates the length of current solution and evaluates if 
 
 | N    | w      | Number of generations |
 | ---- | ------ | --------------------- |
-| 5    | 5      | 94                    |
-| 10   | 14     | 9999                  |
-| 20   | 35     | 19999                 |
-| 100  | 224    | 76551                 |
-| 500  | 50944  | 513                   |
-| 1000 | 486819 | 22                    |
+| 5    | 5      | 95                    |
+| 10   | 14     | 10000                 |
+| 20   | 35     | 20000                 |
+| 100  | 224    | 76552                 |
+| 500  | 50944  | 514                   |
+| 1000 | 486819 | 23                    |
 
 The results for values 5, 10, 20, 100 are acceptable, but the solution is not scalable as it doesn't find good results for 500 and 1000.
+
+### After the deadline
+
+The population and the offspring size were limited for the bigger values of N.
+Prevention from creating duplicates both in the offspring and the initial population.
+
+The results are way better, especially for N = 500. 
+
+| N    | w      | Number of generations |
+| ---- | ------ | --------------------- |
+| 5    | 5      | 17                    |
+| 10   | 11     | 10000                 |
+| 20   | 24     | 10000                 |
+| 100  | 229    | 10000                 |
+| 500  | 1651   | 10000                 |
+| 1000 | 335162 | 662                   |
