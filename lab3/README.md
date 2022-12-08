@@ -221,3 +221,35 @@ Agents without `nim_sum` on the other hand also perforemd well almost always win
 | 100             | 10       | 100         |     | 0.64     |
 | 100             | 10       | 100         | 5   | 0.74     |
 | 100             | 10       | 100         | 3   | 0.87     |
+
+### Task 3.3 - minmax agent
+
+For the minmax solution the code was based on an example presented here: <https://realpython.com/python-minimax-nim/#play-a-simplified-game-of-nim>
+The problem of the algorithm (or maybe only my solution) is that the computation time increases rally fast with the Nim size. For Nim size equal to 3 the results are given in couple of seconds. For Nim size equal to 4 time computation is significantly longer.
+Limitation of depth might have helped with the time, but I didn't implement it.
+I implemented (or tried to implement) alpha-beta pruning, but it didn't improve the time computation significantly.
+
+#### Results
+
+For number of matches equal to 100 and Nim size of 3:
+
+- against `pure_random`
+  - when `pure_random` starts `min_max` wins **100%** of the times
+  - when `min_max` starts, it wins **99%** of the times
+- against `optimal_solution`
+  - when `pure_random` starts `min_max` wins **100%** of the times
+  - when `min_max` starts, it wins **0%** of the times
+
+When ran against evolutionary algorithm with following parameters:
+`POPULATION_SIZE = 10`
+`NUM_GENERATIONS = 100`
+`OFFSPRING_SIZE = 5`
+`NUM_MATCHES = 100`
+`NIM_SIZE = 3`
+Evolutionary algorithm reached fitness (winrate) of **61%**
+
+### Task 3.4 - reinforcement learning agent
+
+Code based on a Maze example presented during CI lecture.
+My algorithm seems to learn how not to play Nim, maybe I messed up the evaluation, maybe the algorithm is wrong.
+If you review my code you can check out the file with RL solution notebook, but feel free to skip this part.
