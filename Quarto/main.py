@@ -41,6 +41,9 @@ def RL_evaluate(player0, NUM_MATCHES=1000, PLOT_STEP=100):
         agent.reset(game)
 
     plt.plot(x_axis, y_axis)
+    plt.ylabel('win rate')
+    plt.xlabel('number of games [average for each 100 played]')
+    plt.title('RL Agent Win Rate')
     plt.show()
 
     return wins1/NUM_MATCHES
@@ -150,11 +153,13 @@ def ES_competition(population):
     for i in range(10):
         for j in range(10):
             if i != j:
-                result_table[j][i] = competition_evaluate(100, population[i].genome, population[j].genome)
+                result_table[j][i] = competition_evaluate(
+                    100, population[i].genome, population[j].genome)
     return result_table
 
 
 def main():
+    
     ########################### EVOLUTIONARY  STRATEGY ###########################
 
     # initial population
@@ -167,7 +172,7 @@ def main():
 
     ### HYPERPARAMETERS ###
     POPULATION_SIZE = 20
-    NUM_GENERATIONS = 500
+    NUM_GENERATIONS = 1000
     OFFSPRING_SIZE = 10
     NUM_MATCHES = 100
     #######################
@@ -306,12 +311,12 @@ def main():
     print("----------------------------------------------------------------------")        
 
     ##############################################################################
-
+    '''
     ########################### REINFORCEMENT LEARNING ###########################
-    # win_rate = RL_evaluate(RandomPlayer, 1000, 100)
-    # logging.warning(f"main: Win rate for player 1: {win_rate}")
+    win_rate = RL_evaluate(RandomPlayer, 100000, 100)
+    logging.warning(f"main: Win rate for player 1: {win_rate}")
     ##############################################################################
-
+    '''
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
